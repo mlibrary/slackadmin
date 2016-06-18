@@ -23,8 +23,14 @@ module BotAction
       puts Users.invite(channel:channel["id"],email:email,ultra_restricted:true)
       ret="I've invited #{email} as a single channel guest in this channel!"
     rescue Exception => e
-      puts "invite failed: #{e.message}"
-      ret="Sorry, I couldn't invite #{email}. Perhaps this person already has an account? Try '/invite @username' instead or contact my creator for assistance."
+      if (e.message.match /already_invited$/)
+        ret="Sorry, #{email} has already been invited, I can't send another invitation."
+      elsif (e.message.match /already_in_team$/)
+        ret="#{email} is already a member of the this Slack team. Try '/invite <@#{Users.email2id(email)}>' instead."
+      else
+        puts "invite failed: #{e.message}"
+        ret="Sorry, I couldn't invite #{email}, there was an error I don't know how to handle. Contact my creator for assistance."
+      end
     end
   end
 

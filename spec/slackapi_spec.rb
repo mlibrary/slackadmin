@@ -124,4 +124,10 @@ RSpec.describe Users do
       expect(user["deleted"]).to be true
     end
   end
+  context "email2id" do
+    it "converts email address of know user to their Slack user id" do
+      ruser = Users.list.sample
+      expect(Users.email2id(ruser["profile"]["email"])).to eq ruser["id"]
+    end
+  end
 end

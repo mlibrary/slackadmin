@@ -177,6 +177,12 @@ module Users
     self.adminapicall("invite",email:email,**options)
   end
 
+  ##
+  # get a UID from email address
+  def self.email2id(email)
+    self.list.select{|u| u["profile"]["email"]==email}.first["id"]
+  end
+
   protected
   # dispatch support
   def self.name
