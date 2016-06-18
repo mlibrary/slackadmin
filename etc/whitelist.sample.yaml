@@ -1,0 +1,7 @@
+---
+# List emails of all full accounts and guests here (everyone but single channel guests)
+# Anyone listed here but not a member will be invited by the bot
+### Don't forget to put your bot in the whitelist! ###
+- user@example.com
+- foo@example.com
+- mybot@example.com

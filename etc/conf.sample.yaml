@@ -1,0 +1,13 @@
+---
+# lit-bot
+token: "INSERT-YOUR-BOT-TOKEN-HERE"
+banhammer:
+  # if this is true, at least one of use_quarantine and use_disable should be true as well
+  enabled: true
+  # move users to quarantine before disabling
+  use_quarantine: true
+  # disable users after moving to quarantine
+  use_disable: true
+  quarantine_channel: banhammer
+# name of a user we can freely repeatedly ban for testing purposes
+test_user: test_account
